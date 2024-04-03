@@ -69,7 +69,7 @@ fun InfoContent(paddingValues: PaddingValues) {
 
         Spacer(modifier = Modifier.height(16.dp))
         // Optionally, provide a link to the detailed README or project repository.
-        Text("For detailed information, visit our [repository](https://github.com/your/repo).", style = MaterialTheme.typography.bodyLarge)
+        Text("For detailed information, visit  repository https://github.com/SanjayKhatiChhetri/HackerNewsApp/ ", style = MaterialTheme.typography.bodyLarge)
     }
 }
 
