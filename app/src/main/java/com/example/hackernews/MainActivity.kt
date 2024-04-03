@@ -108,26 +108,3 @@ fun HackerNewsNavApp(viewModel: HNViewModel) {
         }
     }
 }
-
-/*@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun HackerNewsNavApp(viewModel: HNViewModel) {
-    val navController = rememberNavController()
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Hacker News") },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
-            )
-        }
-    ) { innerPadding ->
-        NavHost(navController = navController, startDestination = "mainScreen", modifier = Modifier.padding(innerPadding)) {
-            composable("mainScreen") { MainScreen(viewModel = viewModel, navController = navController) }
-            composable("infoScreen") { InfoScreen(navController) }
-        }
-    }*/
-
-
-
-

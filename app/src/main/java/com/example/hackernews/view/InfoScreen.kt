@@ -1,9 +1,10 @@
 package com.example.hackernews.view
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -43,51 +44,40 @@ fun InfoScreen(navController: NavController) {
 
 @Composable
 fun InfoContent(paddingValues: PaddingValues) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .padding(paddingValues) // Apply the padding from Scaffold to ensure the content does not overlap with the app bar
-    ) {
-        Text(
-            text = "This app is designed to fetch and display the latest stories from Hacker News, showcasing modern Android app development practices with Jetpack Compose.",
-            modifier = Modifier
-                .padding(16.dp), // Additional padding for aesthetic spacing around the text content
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.scrim
-        )
+    Column(modifier = Modifier
+        .padding(16.dp)) {
+
+        Text(text = "HackerNewsApp Overview", style = MaterialTheme.typography.headlineSmall)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text("HackerNewsApp brings the latest stories from Hacker News to your Android device, showcasing modern Kotlin and Jetpack Compose development practices.",
+            style = MaterialTheme.typography.bodyLarge)
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text("Features", style = MaterialTheme.typography.headlineSmall)
+        FeatureItem(feature = "Latest Stories: Real-time story updates.")
+        FeatureItem(feature = "Responsive UI: Smooth adaptation across devices.")
+        // Include additional features as necessary
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text("Get Involved", style = MaterialTheme.typography.headlineSmall)
+        Text("Contributions are welcome! Visit the project repository to contribute or open an issue.",
+            style = MaterialTheme.typography.bodyLarge)
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text("License: MIT. Please see the LICENSE file for more information.",
+            style = MaterialTheme.typography.bodyLarge)
+
+        Spacer(modifier = Modifier.height(16.dp))
+        // Optionally, provide a link to the detailed README or project repository.
+        Text("For detailed information, visit our [repository](https://github.com/your/repo).", style = MaterialTheme.typography.bodyLarge)
     }
 }
 
-/*
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InfoScreen(navController: NavController) {
-    TopAppBar(
-        title = { Text("Info") },
-        navigationIcon = {
-            IconButton(onClick = { navController.navigateUp() }) {
-                Icon(Icons.Filled.ArrowBack, "Back")
-            }
-        },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-    )
-}
-*/
-
-
-/*
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun InfoScreen(navController: NavController) {
-    Scaffold(
-        topBar = {
-            TopAppBar(title = { Text("Info") })
-        }
-    ) {innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding))
-        // Content of InfoScreen
-        Text(text = "Information about the Hacker News app.", Modifier.padding(1.dp))
+fun FeatureItem(feature: String) {
+    Row(modifier = Modifier.padding(bottom = 8.dp)) {
+        Text("• ", style = MaterialTheme.typography.bodyLarge)
+        Text(feature, style = MaterialTheme.typography.bodyLarge)
     }
 }
-*/
+
